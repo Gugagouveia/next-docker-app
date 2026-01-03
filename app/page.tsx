@@ -64,7 +64,7 @@ export default function Home() {
 
           <div className="flex items-center gap-4">
             <a 
-              href="https://www.linkedin.com/in/gustavogouveia" 
+              href="https://www.linkedin.com/in/gustavo-gouveia" 
               target="_blank"
               className="hidden sm:block text-zinc-400 hover:text-indigo-500 transition-colors"
             >
@@ -266,7 +266,7 @@ export default function Home() {
             <Mail size={24} />
           </a>
           <a
-            href="https://www.linkedin.com/in/gustavogouveia"
+            href="https://www.linkedin.com/in/gustavo-gouveia"
             target="_blank"
             className="p-4 bg-zinc-900 rounded-full hover:text-indigo-400 border border-zinc-800 transition shadow-lg hover:shadow-indigo-500/10"
           >
