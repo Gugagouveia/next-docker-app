@@ -299,7 +299,7 @@ export default function Home() {
             <h4 className="text-indigo-500 font-mono text-xs uppercase tracking-widest mb-2">Pós-graduação</h4>
             <h3 className="text-xl font-bold mb-1">Centro Universitário UNIFAFIRE</h3>
             <p className="text-zinc-400 text-sm mb-4">MBA Engenharia de Software</p>
-            <span className="text-zinc-500 text-xs font-medium">Junho 2025 — Agosto 2026</span>
+            <span className="text-zinc-500 text-xs font-medium">Junho 2025 — Dezembro 2026</span>
           </div>
 
           <div className="p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 hover:border-indigo-500/50 transition-all group">
