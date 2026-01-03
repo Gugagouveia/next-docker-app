@@ -8,14 +8,55 @@ import {
   Layers,
   ShieldCheck,
   GraduationCap,
+  ArrowUp,
+  ArrowDown,
 } from "lucide-react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function Home() {
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      setIsAtTop(scrolled < 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
+  };
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.querySelector(targetId);
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const handleScrollNavigation = () => {
+    if (isAtTop) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
@@ -28,6 +69,17 @@ export default function Home() {
           backgroundSize: "50px 50px",
         }}
       />
+
+      <motion.button
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        onClick={handleScrollNavigation}
+        className="fixed right-8 bottom-8 z-50 p-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow-2xl shadow-indigo-600/30 transition-all hover:scale-110 active:scale-95"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {isAtTop ? <ArrowDown size={24} /> : <ArrowUp size={24} />}
+      </motion.button>
 
       <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-6">
         <motion.nav 
@@ -46,18 +98,23 @@ export default function Home() {
 
           <ul className="hidden md:flex items-center gap-1 bg-zinc-900/50 p-1 rounded-xl border border-zinc-800">
             <li>
-              <a href="#home" className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
+              <a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')} className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
                 Início
               </a>
             </li>
             <li>
-              <a href="#skills" className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
+              <a href="#skills" onClick={(e) => handleSmoothScroll(e, '#skills')} className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
                 Stack
               </a>
             </li>
             <li>
-              <a href="#experiencia" className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
+              <a href="#experiencia" onClick={(e) => handleSmoothScroll(e, '#experiencia')} className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
                 Carreira
+              </a>
+            </li>
+            <li>
+              <a href="#formacao" onClick={(e) => handleSmoothScroll(e, '#formacao')} className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">
+                Formação
               </a>
             </li>
           </ul>
@@ -71,7 +128,8 @@ export default function Home() {
               <Linkedin size={20} />
             </a>
             <a 
-              href="#contato" 
+              href="#contato"
+              onClick={(e) => handleSmoothScroll(e, '#contato')}
               className="px-5 py-2 rounded-xl bg-indigo-600 text-white text-sm font-bold hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/20 active:scale-95"
             >
               Contato
@@ -107,6 +165,7 @@ export default function Home() {
             <div className="flex gap-4 mt-10">
               <a
                 href="#experiencia"
+                onClick={(e) => handleSmoothScroll(e, '#experiencia')}
                 className="px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 transition font-bold shadow-lg shadow-indigo-600/20"
               >
                 Experiência
