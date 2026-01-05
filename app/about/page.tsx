@@ -88,7 +88,7 @@ export default function About() {
               animate={{ opacity: 1, scale: 1, rotateY: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
               whileHover={{ scale: 1.02, rotateY: 5 }}
-              className="relative w-full h-[450px] rounded-3xl overflow-hidden border border-zinc-800/50"
+              className="relative w-full h-[450px] rounded-3xl overflow-hidden border border-zinc-800/50 hidden md:block"
             >
               <Image
                 src="/images/Gemini_Generated_Image_9s3u7l9s3u7l9s3u - Editado.png"
@@ -112,7 +112,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
               whileHover={{ scale: 1.02, rotateY: -5 }}
-              className="relative w-full h-[450px] rounded-3xl overflow-hidden border border-zinc-800/50 order-2 md:order-1"
+              className="relative w-full h-[450px] rounded-3xl overflow-hidden border border-zinc-800/50 order-2 md:order-1 hidden md:block"
             >
               <Image
                src="/images/7e14c933-15b6-4b22-a820-a713cbec39cb.png"
@@ -213,7 +213,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
               whileHover={{ scale: 1.02, rotateY: -5 }}
-              className="relative w-full h-[500px] rounded-3xl overflow-hidden border border-zinc-800/50"
+              className="relative w-full h-[500px] rounded-3xl overflow-hidden border border-zinc-800/50 hidden md:block"
             >
               <Image
                 src="/images/designabout.png"
