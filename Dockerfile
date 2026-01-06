@@ -1,23 +1,43 @@
 # Usar Node 20 Alpine
-FROM node:20-alpine
+FROM node:20-alpine AS base
 
-# Diretório da aplicação
+# Instalar dependências apenas quando necessário
+FROM base AS deps
 WORKDIR /app
 
-# Copiar package.json e package-lock.json (ou npm-shrinkwrap.json)
+# Copiar package.json e package-lock.json
 COPY package*.json ./
+RUN npm ci
 
-# Instalar dependências
-RUN npm install
-
-# Copiar o restante do projeto
+# Build da aplicação
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build da aplicação Next.js
+# Build Next.js
 RUN npm run build
 
-# Expor porta 3000
+# Produção
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Criar usuário não-root
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copiar arquivos necessários
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
 EXPOSE 3000
 
-# Rodar Next.js escutando 0.0.0.0
-CMD ["npm", "start"]
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]

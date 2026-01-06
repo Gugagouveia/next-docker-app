@@ -1,6 +1,32 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## 🐳 Docker
+
+### Build da imagem
+
+```bash
+docker build -t next-docker-app .
+```
+
+### Executar container
+
+```bash
+docker run -d -p 3000:3000 --name next-app next-docker-app
+```
+
+### Parar e remover container
+
+```bash
+docker stop next-app && docker rm next-app
+```
+
+### Visualizar logs
+
+```bash
+docker logs next-app
+```
+
+## 💻 Desenvolvimento Local
 
 First, run the development server:
 

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface AboutContentSectionProps {
@@ -55,15 +54,15 @@ export const AboutContentSection = ({
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.2 + animationDelay }}
         whileHover={{ scale: 1.02, rotateY: isImageRight ? 5 : -5 }}
-        className={`relative w-full h-[${imageHeight}px] rounded-3xl overflow-hidden border border-zinc-800/50 hidden md:block ${
+        className={`relative w-full rounded-3xl overflow-hidden border border-zinc-800/50 hidden md:block ${
           isImageRight ? "order-2" : "order-2 md:order-1"
         }`}
+        style={{ height: `${imageHeight}px` }}
       >
-        <Image
+        <img
           src={imageSrc}
           alt={imageAlt}
-          fill
-          className="object-contain transition-transform duration-500 hover:scale-[1.04] hover:drop-shadow-[0_25px_50px_rgba(99,102,241,0.35)]"
+          className="w-full h-full object-contain transition-transform duration-500 hover:scale-[1.04] hover:drop-shadow-[0_25px_50px_rgba(99,102,241,0.35)]"
         />
       </motion.div>
     </motion.div>
