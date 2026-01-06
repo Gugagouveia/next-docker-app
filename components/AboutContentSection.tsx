@@ -53,16 +53,21 @@ export const AboutContentSection = ({
         whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.2 + animationDelay }}
-        whileHover={{ scale: 1.02, rotateY: isImageRight ? 5 : -5 }}
-        className={`relative w-full rounded-3xl overflow-hidden border border-zinc-800/50 hidden md:block ${
+        className={`relative w-full hidden md:block ${
           isImageRight ? "order-2" : "order-2 md:order-1"
         }`}
         style={{ height: `${imageHeight}px` }}
       >
-        <img
+        <motion.img
           src={imageSrc}
           alt={imageAlt}
-          className="w-full h-full object-contain transition-transform duration-500 hover:scale-[1.04] hover:drop-shadow-[0_25px_50px_rgba(99,102,241,0.35)]"
+          whileHover={{ 
+            scale: 1.05,
+            filter: "drop-shadow(0 25px 50px rgba(99,102,241,0.4))"
+          }}
+          transition={{ duration: 0.3 }}
+          className="w-full h-full object-contain rounded-3xl"
+          style={{ filter: "drop-shadow(0 0 0 rgba(99,102,241,0))" }}
         />
       </motion.div>
     </motion.div>
