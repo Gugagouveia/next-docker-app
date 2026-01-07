@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
  
 export const runtime = 'edge'
  
-export const alt = 'Gustavo Gouveia — Engenharia de Software'
+export const alt = 'Gustavo Gouveia — Desenvolvedor Full Stack'
 export const size = {
   width: 1200,
   height: 630,
@@ -21,10 +21,11 @@ export default async function Image() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'radial-gradient(ellipse at center, #0f1419 0%, #000000 100%)',
+          background: '#09090b',
           position: 'relative',
         }}
       >
+
         <div
           style={{
             position: 'absolute',
@@ -32,28 +33,40 @@ export default async function Image() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'radial-gradient(ellipse 70% 50% at 30% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 70% 60%, rgba(96, 165, 250, 0.15) 0%, transparent 60%)',
+            background: 'radial-gradient(ellipse 60% 50% at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 80% 60%, rgba(168, 85, 247, 0.12) 0%, transparent 60%)',
             filter: 'blur(60px)',
             display: 'flex',
           }}
         />
-        
-        {/* Additional soft glow */}
+
         <div
           style={{
             position: 'absolute',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: '800px',
-            height: '500px',
-            background: 'radial-gradient(ellipse, rgba(59, 130, 246, 0.08) 0%, transparent 70%)',
-            filter: 'blur(100px)',
+            width: '700px',
+            height: '400px',
+            background: 'radial-gradient(ellipse, rgba(99, 102, 241, 0.08) 0%, transparent 70%)',
+            filter: 'blur(80px)',
             display: 'flex',
           }}
         />
-        
-        {/* Content */}
+
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+            display: 'flex',
+            opacity: 0.3,
+          }}
+        />
+
         <div
           style={{
             display: 'flex',
@@ -61,45 +74,69 @@ export default async function Image() {
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1,
+            padding: '0 60px',
           }}
         >
+
+          <div
+            style={{
+              width: 80,
+              height: 80,
+              background: '#6366f1',
+              borderRadius: 16,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 48,
+              fontWeight: 'bold',
+              color: '#ffffff',
+              marginBottom: 32,
+            }}
+          >
+            G
+          </div>
+          
           <h1
             style={{
-              fontSize: 90,
-              fontWeight: 'normal',
+              fontSize: 80,
+              fontWeight: 'bold',
               color: '#ffffff',
               margin: 0,
               padding: 0,
               textAlign: 'center',
-              letterSpacing: '-0.01em',
+              letterSpacing: '-0.02em',
             }}
           >
-            Gustavo Gouveia
+            Gustavo <span style={{ color: '#6366f1' }}>Gouveia</span>
           </h1>
-          
-          <div
-            style={{
-              width: 100,
-              height: 2,
-              background: '#3b82f6',
-              margin: '36px 0',
-              display: 'flex',
-            }}
-          />
           
           <p
             style={{
-              fontSize: 24,
-              color: '#9ca3af',
-              margin: 0,
+              fontSize: 28,
+              color: '#a1a1aa',
+              margin: '24px 0 0 0',
               textAlign: 'center',
-              fontWeight: 300,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
+              fontWeight: 400,
+              maxWidth: '800px',
+              lineHeight: 1.4,
             }}
           >
-            Engenharia de Software
+            Desenvolvedor Full Stack · TypeScript · React · Next.js · Node.js
           </p>
+          
+
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
+              marginTop: 40,
+            }}
+          >
+            <div style={{ width: 40, height: 2, background: '#6366f1', display: 'flex' }} />
+            <span style={{ color: '#6366f1', fontSize: 18, fontFamily: 'monospace' }}>gustavogouveia.tech</span>
+            <div style={{ width: 40, height: 2, background: '#6366f1', display: 'flex' }} />
+          </div>
         </div>
       </div>
     ),
