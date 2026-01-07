@@ -15,7 +15,7 @@ export const Footer = () => {
   return (
     <footer
       id="contato"
-      className="relative z-10 border-t border-zinc-900 py-24 text-center"
+      className="relative z-10 py-24 text-center"
     >
       <h2 className="text-3xl font-bold mb-10">Conecte-se comigo</h2>
       <div className="flex justify-center gap-6 mb-12">

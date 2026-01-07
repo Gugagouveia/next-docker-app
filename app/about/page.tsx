@@ -1,17 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { Footer } from "@/components/Footer";
 import { AboutHeader } from "@/components/AboutHeader";
 import { AboutContentSection } from "@/components/AboutContentSection";
 import { FADE_IN_ANIMATION } from "@/constants/animation";
+import { Plasma } from "@/components/Plasma";
 
 export default function About() {
   return (
-    <main className="bg-zinc-950 text-zinc-100 min-h-screen scroll-smooth selection:bg-indigo-500/30 overflow-x-hidden">
-      <BackgroundGrid />
-      <AboutHeader />
+    <main className="bg-zinc-950 text-zinc-100 min-h-screen scroll-smooth selection:bg-indigo-500/30 overflow-x-hidden relative">
+      {/* Plasma Background */}
+      <div className="fixed inset-0 z-0 w-full h-full opacity-30">
+        <Plasma
+          color="#5227FF"
+          speed={0.5}
+          direction="forward"
+          scale={1}
+          opacity={1}
+          mouseInteractive={true}
+        />
+      </div>
+      
+      {/* Content Layer */}
+      <div className="relative z-10">
+        <AboutHeader />
 
       <section className="relative z-10 px-6 md:px-16 pt-32 pb-24 max-w-6xl mx-auto">
         <motion.div
@@ -130,6 +143,7 @@ export default function About() {
       </section>
 
       <Footer />
+      </div>
     </main>
   );
 }
