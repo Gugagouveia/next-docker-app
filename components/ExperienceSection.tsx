@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react";
 import { FADE_IN_ANIMATION } from "@/constants/animation";
 import { EXPERIENCES } from "@/constants/content";
-import { ExperienceCard } from "./ExperienceCard";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const ExperienceSection = () => {
   return (
@@ -26,28 +28,45 @@ export const ExperienceSection = () => {
         </h3>
       </motion.div>
 
-      <div className="space-y-20">
-        {EXPERIENCES.map((exp) => (
-          <ExperienceCard
+      <div className="space-y-8">
+        {EXPERIENCES.map((exp, index) => (
+          <motion.div
             key={exp.title}
-            title={exp.title}
-            role={exp.role}
-            period={exp.period}
-            description={
-              exp.highlights.length > 0 ? (
-                <>
-                  {exp.description}
-                  <ul className="list-disc list-inside mt-4 space-y-2">
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <Card className="bg-zinc-900/40 border-zinc-800/50 hover:border-indigo-500/50 hover:scale-105 transition-all group backdrop-blur-sm">
+              <CardHeader>
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-indigo-500/10 rounded-lg group-hover:bg-indigo-500/20 transition-colors">
+                    <Briefcase className="text-indigo-500" size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <CardTitle className="text-xl font-bold mb-1">{exp.title}</CardTitle>
+                    <CardDescription className="text-indigo-400 font-medium mb-2">{exp.role}</CardDescription>
+                    <Badge variant="outline" className="text-zinc-500 border-zinc-700">
+                      {exp.period}
+                    </Badge>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-zinc-400 mb-4">{exp.description}</p>
+                {exp.highlights.length > 0 && (
+                  <ul className="space-y-2">
                     {exp.highlights.map((highlight) => (
-                      <li key={highlight}>{highlight}</li>
+                      <li key={highlight} className="flex gap-2 text-zinc-300">
+                        <span className="text-indigo-500 font-bold">•</span>
+                        <span>{highlight}</span>
+                      </li>
                     ))}
                   </ul>
-                </>
-              ) : (
-                exp.description
-              )
-            }
-          />
+                )}
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
     </section>

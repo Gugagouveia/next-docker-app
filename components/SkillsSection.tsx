@@ -4,10 +4,15 @@ import { motion } from "framer-motion";
 import { Code2, Layers, ShieldCheck } from "lucide-react";
 import { FADE_IN_ANIMATION } from "@/constants/animation";
 import { SKILLS } from "@/constants/content";
-import { SkillCard } from "./SkillCard";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const SkillsSection = () => {
-  const skillIcons = [<Code2 key="code" />, <Layers key="layers" />, <ShieldCheck key="shield" />];
+  const skillIcons = {
+    Frontend: <Code2 className="text-indigo-500" size={32} />,
+    Backend: <Layers className="text-indigo-500" size={32} />,
+    Qualidade: <ShieldCheck className="text-indigo-500" size={32} />
+  };
 
   return (
     <section id="skills" className="relative z-10 py-32 max-w-7xl mx-auto px-6">
@@ -28,12 +33,36 @@ export const SkillsSection = () => {
 
       <div className="grid md:grid-cols-3 gap-8">
         {SKILLS.map((skill, index) => (
-          <SkillCard
+          <motion.div
             key={skill.title}
-            icon={skillIcons[index]}
-            title={skill.title}
-            text={skill.text}
-          />
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <Card className="bg-zinc-900/40 border-zinc-800/50 hover:border-indigo-500/50 hover:scale-105 transition-all group h-full backdrop-blur-sm">
+              <CardHeader>
+                <div className="mb-4">
+                  {skillIcons[skill.title as keyof typeof skillIcons]}
+                </div>
+                <CardTitle className="text-xl font-bold">{skill.title}</CardTitle>
+                <CardDescription className="text-zinc-400">{skill.text}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {skill.technologies.map((tech) => (
+                    <Badge 
+                      key={tech} 
+                      variant="secondary" 
+                      className="bg-zinc-800/50 text-zinc-300 hover:bg-indigo-500/20 hover:text-indigo-400 transition-colors"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
     </section>

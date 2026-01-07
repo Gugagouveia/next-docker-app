@@ -29,13 +29,13 @@ export const Header = () => {
           </span>
         </div>
 
-        <ul className="hidden md:flex items-center gap-1 bg-zinc-900/50 p-1 rounded-xl border border-zinc-800">
+        <ul className="hidden md:flex items-stretch bg-zinc-900/50 rounded-xl border border-zinc-800 overflow-hidden">
           {NAV_LINKS.map((link) => (
-            <li key={link.href}>
+            <li key={link.href} className="flex">
               <a 
                 href={link.href} 
                 onClick={(e) => handleSmoothScroll(e, link.href)} 
-                className="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all"
+                className="px-6 py-2.5 flex items-center text-sm font-medium text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all"
               >
                 {link.label}
               </a>

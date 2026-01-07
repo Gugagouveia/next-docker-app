@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import { FADE_IN_ANIMATION } from "@/constants/animation";
 import { EDUCATION } from "@/constants/content";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const EducationSection = () => {
   return (
@@ -24,19 +26,30 @@ export const EducationSection = () => {
       </motion.div>
 
       <div className="grid md:grid-cols-2 gap-8">
-        {EDUCATION.map((edu) => (
-          <div 
+        {EDUCATION.map((edu, index) => (
+          <motion.div
             key={edu.institution}
-            className="p-8 rounded-3xl bg-zinc-900/40 border border-zinc-800/50 hover:border-indigo-500/50 transition-all group"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <GraduationCap className="text-indigo-500 mb-6 group-hover:scale-110 transition-transform" size={32} />
-            <h4 className="text-indigo-500 font-mono text-xs uppercase tracking-widest mb-2">
-              {edu.level}
-            </h4>
-            <h3 className="text-xl font-bold mb-1">{edu.institution}</h3>
-            <p className="text-zinc-400 text-sm mb-4">{edu.course}</p>
-            <span className="text-zinc-500 text-xs font-medium">{edu.period}</span>
-          </div>
+            <Card className="bg-zinc-900/40 border-zinc-800/50 hover:border-indigo-500/50 hover:scale-105 transition-all group h-full backdrop-blur-sm">
+              <CardHeader>
+                <div className="mb-4">
+                  <GraduationCap className="text-indigo-500" size={32} />
+                </div>
+                <Badge variant="outline" className="text-indigo-400 border-indigo-500/50 w-fit mb-2">
+                  {edu.level}
+                </Badge>
+                <CardTitle className="text-xl font-bold mb-1">{edu.institution}</CardTitle>
+                <CardDescription className="text-zinc-400 mb-4">{edu.course}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <span className="text-zinc-500 text-xs font-medium">{edu.period}</span>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -10,15 +10,18 @@ export const SITE_INFO = {
 export const SKILLS = [
   {
     title: 'Frontend',
-    text: 'React.js, Next.js, TypeScript e Tailwind CSS para interfaces modernas.'
+    text: 'React.js, Next.js, TypeScript e Tailwind CSS para interfaces modernas.',
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'JavaScript']
   },
   {
     title: 'Backend',
-    text: 'Node.js, Express e APIs REST bem estruturadas e escaláveis.'
+    text: 'Node.js, Express e APIs REST bem estruturadas e escaláveis.',
+    technologies: ['Node.js', 'Express', 'REST API', 'PostgreSQL', 'MongoDB']
   },
   {
     title: 'Qualidade',
-    text: 'Testes unitários com Jest, foco em confiabilidade e manutenção.'
+    text: 'Testes unitários com Jest, foco em confiabilidade e manutenção.',
+    technologies: ['Jest', 'Testing Library', 'Git', 'Docker', 'CI/CD']
   }
 ] as const;
 
