@@ -15,7 +15,6 @@ export default function Home() {
 
   return (
     <main className="bg-zinc-950 text-zinc-100 min-h-screen scroll-smooth selection:bg-indigo-500/30 overflow-x-hidden relative">
-      {/* Aurora Background */}
       <div className="fixed inset-0 z-0 w-full h-full opacity-40">
         <Aurora
           colorStops={['#5227FF', '#FF9FFC', '#B19EEF']}
@@ -24,7 +23,6 @@ export default function Home() {
         />
       </div>
       
-      {/* Content Layer */}
       <div className="relative z-10">
         <ScrollButton isAtTop={isAtTop} />
         <Header />

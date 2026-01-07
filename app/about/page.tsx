@@ -6,11 +6,12 @@ import { AboutHeader } from "@/components/AboutHeader";
 import { AboutContentSection } from "@/components/AboutContentSection";
 import { FADE_IN_ANIMATION } from "@/constants/animation";
 import { Plasma } from "@/components/Plasma";
+import { TextGradient } from "@/components/text-animations/TextGradient";
+import { GradientOrbs } from "@/components/animations/GradientOrbs";
 
 export default function About() {
   return (
     <main className="bg-zinc-950 text-zinc-100 min-h-screen scroll-smooth selection:bg-indigo-500/30 overflow-x-hidden relative">
-      {/* Plasma Background */}
       <div className="fixed inset-0 z-0 w-full h-full opacity-30">
         <Plasma
           color="#5227FF"
@@ -22,7 +23,8 @@ export default function About() {
         />
       </div>
       
-      {/* Content Layer */}
+      <GradientOrbs className="fixed inset-0 z-0" />
+      
       <div className="relative z-10">
         <AboutHeader />
 
@@ -36,7 +38,7 @@ export default function About() {
           <AboutContentSection
             title={
               <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-100">
-                Sobre <span className="text-indigo-500">mim</span>
+                Sobre <TextGradient text="mim" from="#6366f1" via="#a855f7" to="#ec4899" animate />
               </h1>
             }
             content={
@@ -93,7 +95,7 @@ export default function About() {
                 ))}
               </ul>
             }
-            imageSrc="/images/7e14c933-15b6-4b22-a820-a713cbec39cb.png"
+            imageSrc="/images/gustagouveia2ndimage.png"
             imageAlt="Imagem representando processo e filosofia"
             imagePosition="left"
           />
@@ -108,8 +110,8 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  Acompanho Fórmula 1, sou torcedor do Manchester City e pratico
-                  natação — atividades que refletem disciplina, foco e constância.
+                  Acompanho Fórmula 1, sou torcedor de carteirinha do Santa Cruz e pratico
+                  natação, ciclismo e corrida regularmente.
                 </motion.p>
 
                 <motion.p
@@ -134,7 +136,7 @@ export default function About() {
                 </motion.p>
               </>
             }
-            imageSrc="/images/designabout.png"
+            imageSrc="/images/gustavogouveia3rdimage.png"
             imageAlt="Imagem representando hobbies e inspiração"
             imagePosition="right"
             imageHeight={500}

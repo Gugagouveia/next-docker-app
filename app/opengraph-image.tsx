@@ -25,7 +25,6 @@ export default async function Image() {
           position: 'relative',
         }}
       >
-        {/* Aurora gradient background */}
         <div
           style={{
             position: 'absolute',
