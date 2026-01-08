@@ -3,29 +3,24 @@
 import { Footer } from "@/components/Footer";
 import { AboutHeader } from "@/components/AboutHeader";
 import { AboutContentSection } from "@/components/AboutContentSection";
-import { Plasma } from "@/components/Plasma";
-import { GradientOrbs } from "@/components/animations/GradientOrbs";
+import Orb from "@/components/Orb";
 
 export default function About() {
   return (
     <main className="bg-zinc-950 text-zinc-100 min-h-screen scroll-smooth selection:bg-indigo-500/30 overflow-x-hidden relative">
-      <div className="fixed inset-0 z-0 w-full h-full opacity-30">
-        <Plasma
-          color="#5227FF"
-          speed={0.5}
-          direction="forward"
-          scale={1}
-          opacity={1}
-          mouseInteractive={true}
+      <div className="fixed inset-0 z-0 w-full h-full opacity-40">
+        <Orb
+          hue={270}
+          hoverIntensity={0.3}
+          rotateOnHover={true}
+          backgroundColor="#09090b"
         />
       </div>
-      
-      <GradientOrbs className="fixed inset-0 z-0" />
       
       <div className="relative z-10">
         <AboutHeader />
 
-      <section className="relative z-10 px-6 md:px-16 pt-32 pb-24 max-w-6xl mx-auto">
+        <section className="px-6 md:px-16 pt-32 pb-24 max-w-6xl mx-auto">
         <div className="space-y-32">
           <AboutContentSection
             title={
