@@ -1,12 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
 import { AboutHeader } from "@/components/AboutHeader";
 import { AboutContentSection } from "@/components/AboutContentSection";
-import { FADE_IN_ANIMATION } from "@/constants/animation";
 import { Plasma } from "@/components/Plasma";
-import { TextGradient } from "@/components/text-animations/TextGradient";
 import { GradientOrbs } from "@/components/animations/GradientOrbs";
 
 export default function About() {
@@ -29,40 +26,26 @@ export default function About() {
         <AboutHeader />
 
       <section className="relative z-10 px-6 md:px-16 pt-32 pb-24 max-w-6xl mx-auto">
-        <motion.div
-          initial={FADE_IN_ANIMATION.initial}
-          animate={FADE_IN_ANIMATION.animate}
-          transition={FADE_IN_ANIMATION.transition}
-          className="space-y-32"
-        >
+        <div className="space-y-32">
           <AboutContentSection
             title={
               <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-100">
-                Sobre <TextGradient text="mim" from="#6366f1" via="#a855f7" to="#ec4899" animate />
+                Sobre <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">mim</span>
               </h1>
             }
             content={
               <>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                  className="text-lg"
-                >
+                <p className="text-lg">
                   Desenvolvedor de software focado em criar interfaces bem pensadas,
                   código limpo e soluções simples para problemas complexos.
-                </motion.p>
+                </p>
 
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                >
+                <p>
                   Trabalho com desenvolvimento web e mobile, sempre buscando
                   performance, boa experiência do usuário e produtos fáceis de
                   manter. Gosto de entender como as coisas funcionam nos bastidores
                   e transformar isso em soluções reais.
-                </motion.p>
+                </p>
               </>
             }
             imageSrc="/images/Gemini_Generated_Image_9s3u7l9s3u7l9s3u - Editado.png"
@@ -80,18 +63,10 @@ export default function About() {
                   "Aprendizado contínuo como parte do processo",
                   "Boa comunicação e trabalho em equipe"
                 ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    whileHover={{ x: 5, transition: { duration: 0.2 } }}
-                    className="flex gap-3"
-                  >
+                  <li key={index} className="flex gap-3">
                     <span className="text-indigo-500 font-bold">•</span>
                     <span>{item}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             }
@@ -104,36 +79,21 @@ export default function About() {
             title="Além do código"
             content={
               <>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
+                <p>
                   Acompanho Fórmula 1, sou torcedor de carteirinha do Santa Cruz e pratico
                   natação, ciclismo e corrida regularmente.
-                </motion.p>
+                </p>
 
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
+                <p>
                   Também gosto de desafios que exigem persistência e aprendizado
                   contínuo. Entre eles, <strong className="text-zinc-100">ELDEN RING</strong>{" "}
                   se destaca como um dos meus jogos favoritos.
-                </motion.p>
+                </p>
 
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                >
+                <p>
                   Essa combinação de interesses influencia diretamente minha forma
                   de pensar, trabalhar e evoluir como desenvolvedor.
-                </motion.p>
+                </p>
               </>
             }
             imageSrc="/images/gustavogouveia3rdimage.png"
@@ -141,7 +101,7 @@ export default function About() {
             imagePosition="right"
             imageHeight={500}
           />
-        </motion.div>
+        </div>
       </section>
 
       <Footer />
