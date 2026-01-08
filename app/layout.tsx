@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.png",
   },
-  metadataBase: new URL('https://gustavogouveia.dev'),
+  metadataBase: new URL('https://gustavogouveia.lat'),
   openGraph: {
     title: "Gustavo Gouveia — Desenvolvedor Full Stack",
     description: "Desenvolvedor de software focado em criar experiências digitais modernas, performáticas e bem estruturadas — TypeScript, React, Next.js, Node.js",
-    url: 'https://gustavogouveia.dev',
+    url: 'https://gustavogouveia.lat',
     siteName: 'Gustavo Gouveia',
     locale: 'pt_BR',
     type: 'website',
