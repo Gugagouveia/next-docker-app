@@ -3,4 +3,4 @@ export { AnimatedGrid } from "./AnimatedGrid";
 export { MagneticButton } from "./MagneticButton";
 export { HoverGlowCard } from "./HoverGlowCard";
 export { ParallaxSection } from "./ParallaxSection";
-export { GradientOrbs } from "./GradientOrbs";
+
