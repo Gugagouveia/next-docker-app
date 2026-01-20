@@ -1,6 +1,7 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { SITE_INFO } from "@/constants/content";
 
 export const Footer = () => {
@@ -9,7 +10,7 @@ export const Footer = () => {
   const socialLinks = [
     { href: `mailto:${SITE_INFO.email}`, icon: Mail, label: "Email" },
     { href: SITE_INFO.linkedin, icon: Linkedin, label: "LinkedIn" },
-    { href: SITE_INFO.github, icon: Github, label: "GitHub" }
+    { href: "https://wa.me/5581986503252", icon: FaWhatsapp, label: "WhatsApp" }
   ];
 
   return (
