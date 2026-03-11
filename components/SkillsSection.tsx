@@ -25,7 +25,7 @@ export const SkillsSection = () => {
       <motion.div 
         initial={FADE_IN_ANIMATION.initial}
         whileInView={FADE_IN_ANIMATION.animate}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px", amount: 0.3 }}
         transition={FADE_IN_ANIMATION.transition}
         className="mb-16 relative z-10"
       >
@@ -47,7 +47,7 @@ export const SkillsSection = () => {
             key={skill.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px", amount: 0.3 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <HoverGlowCard glowColor="rgba(99, 102, 241, 0.3)">

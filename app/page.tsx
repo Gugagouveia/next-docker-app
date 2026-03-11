@@ -14,7 +14,7 @@ export default function Home() {
   const { isAtTop } = useScrollPosition();
 
   return (
-    <main className="bg-zinc-950 text-zinc-100 min-h-screen scroll-smooth selection:bg-indigo-500/30 overflow-x-hidden relative">
+    <main className="bg-zinc-950 text-zinc-100 min-h-screen scroll-smooth selection:bg-indigo-500/30 overflow-x-hidden relative overscroll-behavior-y-contain touch-action-pan-y">
       <div className="fixed inset-0 z-0 w-full h-full opacity-40">
         <Aurora
           colorStops={['#5227FF', '#FF9FFC', '#B19EEF']}
