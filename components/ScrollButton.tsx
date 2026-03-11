@@ -22,7 +22,7 @@ export const ScrollButton = ({ isAtTop }: ScrollButtonProps) => {
     <motion.div
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
-      className="fixed right-8 bottom-8 z-50"
+      className="fixed right-8 bottom-8 z-50 hidden md:block"
     >
       <Button
         onClick={handleClick}
