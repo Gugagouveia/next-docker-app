@@ -26,7 +26,7 @@ export const Header = () => {
             G
           </div>
           <span className="font-bold tracking-tighter text-zinc-100 hidden sm:block">
-            Gustavo<span className="text-indigo-500">.dev</span>
+            Gustavo<span className="text-indigo-500">.tech</span>
           </span>
         </div>
 
