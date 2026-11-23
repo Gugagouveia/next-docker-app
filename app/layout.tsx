@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SITE_INFO } from "@/constants/content";
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
 };
 
-const siteTitle = "Gustavo Gouveia — Desenvolvedor Full Stack";
-const siteDescription = "Desenvolvedor de software focado em criar experiências digitais modernas, performáticas e bem estruturadas — do backend ao frontend.";
+const siteTitle = `${SITE_INFO.name} — ${SITE_INFO.title}`;
+const siteDescription = `${SITE_INFO.description} Experiência em aplicações web e mobile, APIs REST e mensageria. Recife, PE.`;
 
 export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
-  icons: { icon: "/icon.png" },
-  metadataBase: new URL("https://gustavogouveia.lat"),
+  alternates: { canonical: "/" },
+  icons: { icon: "/icon.svg" },
+  metadataBase: new URL(SITE_INFO.website),
   openGraph: {
     title: siteTitle,
     description: siteDescription,
-    url: "https://gustavogouveia.lat",
+    url: SITE_INFO.website,
     siteName: "Gustavo Gouveia",
     locale: "pt_BR",
     type: "website",

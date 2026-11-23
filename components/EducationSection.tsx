@@ -1,24 +1,25 @@
-import { GraduationCap } from "lucide-react";
 import { EDUCATION } from "@/constants/content";
-import { COPY, EDUCATION_COPY, type Language } from "@/constants/i18n";
+import { COPY, type Language } from "@/constants/i18n";
 
-export const EducationSection = ({ language }: { language: Language }) => (
-  <section id="formacao" className="content-section">
-    <header className="section-heading">
-      <p className="section-kicker">{COPY[language].education}</p>
-      <h2 className="section-title">{COPY[language].academic}</h2>
-    </header>
-    <div className="education-grid">
-      {EDUCATION.map((education) => {
-        const translated = EDUCATION_COPY[language][education.institution];
-        return <article className="site-card education-card" key={education.institution}>
-        <div className="section-icon"><GraduationCap size={22} strokeWidth={1.7} /></div>
-        <p className="education-level">{translated.level}</p>
-        <h3>{education.institution}</h3>
-        <p className="education-course">{translated.course}</p>
-        <p className="education-period">{translated.period}</p>
-      </article>;
-      })}
-    </div>
-  </section>
-);
+export const EducationSection = ({ language }: { language: Language }) => {
+  const copy = COPY[language];
+
+  return (
+    <section className="content-section education-section" id="formacao">
+      <div className="section-index"><span>04</span><span>{copy.educationEyebrow}</span></div>
+      <div className="section-body">
+        <header className="section-heading"><h2 className="section-title">{copy.educationTitle}</h2></header>
+        <div className="education-list">
+          {EDUCATION.map((education, index) => (
+            <article className="education-entry" key={education.id}>
+              <span className="education-number">0{index + 1}</span>
+              <div><h3>{education.course[language]}</h3><p>{education.institution}</p></div>
+              <span className="education-period">{education.period[language]}</span>
+              <span className={`education-status status-${education.status}`}>{copy.educationStatus[education.status]}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

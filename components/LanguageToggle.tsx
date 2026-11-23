@@ -8,9 +8,9 @@ interface LanguageToggleProps {
 }
 
 export const LanguageToggle = ({ language, onChange }: LanguageToggleProps) => (
-  <div className="language-toggle" aria-label="Selecionar idioma">
-    <button className={language === "en" ? "selected" : ""} onClick={() => onChange("en")} type="button">ENG</button>
+  <div className="language-toggle" role="group" aria-label="Selecionar idioma">
+    <button className={language === "en" ? "selected" : ""} aria-pressed={language === "en"} onClick={() => onChange("en")} type="button">ENG</button>
     <span>/</span>
-    <button className={language === "pt" ? "selected" : ""} onClick={() => onChange("pt")} type="button">PT</button>
+    <button className={language === "pt" ? "selected" : ""} aria-pressed={language === "pt"} onClick={() => onChange("pt")} type="button">PT</button>
   </div>
 );
